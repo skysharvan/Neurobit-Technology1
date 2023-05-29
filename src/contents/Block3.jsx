@@ -5,7 +5,7 @@ const Block3 = () => {
   return (
     <>
       <Box sx={{display:'flex', alignItems:'center',justifyContent:'center',height:'300px',width:'100%'}}>
-         <h1>Thank You</h1>
+         <h1>Submitted , Thank You</h1>
       </Box>
     </>
   )

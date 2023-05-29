@@ -1,6 +1,7 @@
 import { Autocomplete, Box, Button, Checkbox, TextField, Typography } from '@mui/material'
 import React from 'react';
 // import {useForm} from 'react-hook-form';
+import Block2Data from './Block2Data'
 
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
@@ -17,31 +18,49 @@ const top100Films = [
     {label:'channel1-9'},
     {label:'channel1-10'}
 ];
+
+
+
+
 const Block2 = () => {
 //  const {register , handleSubmit} = useForm();
 //  const onSubmit = (data) =>{
-//   console.log(data);
+  // console.log(data1 );
 //  }
+
+// const handleChange1 = (e)=>{
+//   setData1({...e.target.value
+//   })
+//   console.log(data1 );
+// }
+// const handleChange2 = (e)=>{
+//   setData1({...e.target.value
+//   })
+//   console.log(data1+"ldmjcdsv cs sxsa" );
+// }
+
   return (
     <>
     {/* <form onsubmit={handleSubmit(onSubmit)}></form> */}
-        <Box sx={{width:'100%', height:'570px',display:'flex',flexDirection:'column',alignItems:'center',margin:'30px 0px'}}>
-            <Box sx={{width:'90%', height:'63px',display:'flex',alignItems:'center',boxShadow:'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',gap:'80px',}}>
+        <Box sx={{width:'100%', height:{md:'570px',xs:'auto'},display:'flex',flexDirection:'column',alignItems:'center',margin:'30px 0px'}}>
+            <Box sx={{width:{md:'90%',xs:'100%'}, height:{md:'auto',sm:'110px',xs:'130px'},display:'flex',alignItems:'center',padding:'15px',boxShadow:'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',gap:{md:'80px',xs:'30px'},}}>
               <Typography sx={{margin:'0px 20px'}}>Channel</Typography>
               <Typography>Primary channels (default select)</Typography>
               <Typography>Reference channels (default N/A)</Typography>
             </Box>
-
-            <Box sx={{width:'90%',height:'102px',boxShadow:'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',margin:'20px 0px',display:'flex',alignItems:'center',gap:'70px'}}>
-                  <Box sx={{display:'flex',}}>
-                    <Typography sx={{fontSize:'20px',margin:'0px 20px'}}>C3-A2</Typography>
+            {
+              Block2Data.data.map((element , id)=>{
+                return(
+                  <Box key={id} sx={{width:{md:'90%',xs:'100%'},height:'auto',boxShadow:'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',margin:'20px 0px',display:{md:'flex',sm:'flex',xs:'column'},alignItems:'center',gap:{md:'25px',sm:'100px',xs:'120px'},padding:{md:'20px'}}}>
+                  <Box sx={{display:'flex'}}>
+                    <Typography sx={{fontSize:'20px',margin:{md:'0px 20px',xs:'0px 8px'}}}>{element.channel}</Typography>
                   </Box>
                   <Autocomplete
                       disablePortal
                       id="combo-box-demo"
                       options={top100Films}
                       sx={{ width: 300 }}
-                      renderInput={(params) => <TextField {...params} label="Select channel" />}
+                      renderInput={(params) => <TextField {...params} label="Select channel" name='data1'   />}
                       
                       />
                   <Autocomplete
@@ -50,54 +69,18 @@ const Block2 = () => {
                       options={top100Films}
                       sx={{ width: 300 }}
                     
-                      renderInput={(params) => <TextField {...params} label="Select channel" />}
+                      renderInput={(params) => <TextField {...params} label="Select channel" name='data1'  />}
                       />
                   
-                    <Button sx={{fontSize:'18px',color:'#3E78B8',padding:'10px'}}> + ADD BACKUP CHANNEL</Button>
+                    <Button sx={{fontSize:'18px',color:'#3E78B8',padding:'10px'}}>{element.name}</Button>
                 
-            </Box>
-            <Box sx={{width:'90%',height:'102px',boxShadow:'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',margin:'20px 0px',display:'flex',alignItems:'center',gap:'70px'}}>
-                  <Box sx={{display:'flex',}}>
-                    <Typography sx={{fontSize:'20px',margin:'0px 20px'}}>C3-A2</Typography>
                   </Box>
-                  <Autocomplete
-                      disablePortal
-                      id="combo-box-demo"
-                      options={top100Films}
-                      sx={{ width: 300 }}
-                      renderInput={(params) => <TextField {...params} label="Select channel" />}
-                      />
-                  <Autocomplete
-                      disablePortal
-                      id="combo-box-demo"
-                      options={top100Films}
-                      sx={{ width: 300 }}
-                      renderInput={(params) => <TextField {...params} label="Select channel" />}
-                      />
-                  <Button sx={{fontSize:'18px',color:'#3E78B8',padding:'10px'}}> + ADD BACKUP CHANNEL</Button>
-            </Box>
+                )
+              })
           
-            <Box sx={{width:'90%',height:'102px',boxShadow:'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',margin:'20px 0px',display:'flex',alignItems:'center',gap:'80px'}}>
-                  <Box sx={{display:'flex',}}>
-                    <Typography sx={{fontSize:'20px',margin:'0px 20px'}}>EMG</Typography>
-                  </Box>
-                  <Autocomplete
-                      disablePortal
-                      id="combo-box-demo"
-                      options={top100Films}
-                      sx={{ width: 300 }}
-                      renderInput={(params) => <TextField {...params} label="Select channel" />}
-                      />
-                  <Autocomplete
-                      disablePortal
-                      id="combo-box-demo"
-                      options={top100Films}
-                      sx={{ width: 300 }}
-                      renderInput={(params) => <TextField {...params} label="Select channel" />}
-                      />
-                  <Button sx={{fontSize:'18px',color:'#3E78B8',padding:'10px'}}> + ADD BACKUP CHANNEL</Button>
-            </Box>
-            <Box sx={{width:'90%',height:'102px',boxShadow:'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',margin:'20px 0px',display:'flex',alignItems:'center',gap:'70px'}}>
+           
+}
+            <Box sx={{width:{md:'90%',xs:'100%'},height:'auto',boxShadow:'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',margin:'20px 0px',display:{md:'flex',xs:'column'},alignItems:'center',gap:'70px',padding:{md:'20px'}}}>
                   <Box sx={{display:'flex',}}>
                     <Typography sx={{fontSize:'20px',margin:'0px 20px'}}>Additional Settings</Typography>
                   </Box>
